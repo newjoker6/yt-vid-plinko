@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbkckj1m5hlkg"]
+
+[ext_resource type="Script" uid="uid://b8i3cgvikidy8" path="res://chip.gd" id="1_ojlvc"]
+[ext_resource type="Texture2D" uid="uid://cy15as3puwjtl" path="res://icon.svg" id="1_ri5qt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0hol4"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojlvc"]
+radius = 13.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_0hol4")
+script = ExtResource("1_ojlvc")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.992794, 0.457304, 1.92523e-07, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ri5qt")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ojlvc")
+metadata/_edit_lock_ = true

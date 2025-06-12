@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceubkps0heoha"]
+
+[ext_resource type="PackedScene" uid="uid://c3xm2r8ugvl3g" path="res://board.tscn" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://hkihbqehy4vp" path="res://world.gd" id="1_epypp"]
+[ext_resource type="PackedScene" uid="uid://dbkckj1m5hlkg" path="res://chip.tscn" id="2_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(967.311, 25.1786)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(20, 302)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_epypp")
+chip = ExtResource("2_0hol4")
+
+[node name="board" parent="." instance=ExtResource("1_0e48y")]
+position = Vector2(584, 150)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(227, 514)
+rotation = -0.959931
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(931.922, 519.556)
+rotation = 0.959931
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(520, -12)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(646, -12)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Options" type="VBoxContainer" parent="GUI"]
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 308.0
+offset_bottom = 385.0
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/Options/VBoxContainer"]
+layout_mode = 2
+text = "Rows"
+
+[node name="HSlider" type="HSlider" parent="GUI/Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GUI/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/Options/VBoxContainer2"]
+layout_mode = 2
+text = "Balls At Once"
+
+[node name="HSlider" type="HSlider" parent="GUI/Options/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="GUI/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/Options/VBoxContainer3"]
+layout_mode = 2
+text = "Centre Bias"
+
+[node name="HSlider" type="HSlider" parent="GUI/Options/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="GUI/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/Options/VBoxContainer4"]
+layout_mode = 2
+text = "Bet Amount"
+
+[node name="TextEdit" type="TextEdit" parent="GUI/Options/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "$50.00"
+
+[node name="Button" type="Button" parent="GUI/Options"]
+layout_mode = 2
+text = "BET"
