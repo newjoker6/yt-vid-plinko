@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceubkps0heoha"]
+[gd_scene load_steps=8 format=3 uid="uid://ceubkps0heoha"]
 
 [ext_resource type="PackedScene" uid="uid://c3xm2r8ugvl3g" path="res://board.tscn" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://hkihbqehy4vp" path="res://world.gd" id="1_epypp"]
 [ext_resource type="PackedScene" uid="uid://dbkckj1m5hlkg" path="res://chip.tscn" id="2_0hol4"]
+[ext_resource type="PackedScene" uid="uid://c88nmn1lct056" path="res://bumper.tscn" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://lcsolx8yntbr" path="res://score.tscn" id="5_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(967.311, 25.1786)
@@ -12,38 +14,45 @@ size = Vector2(20, 302)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_epypp")
-chip = ExtResource("2_0hol4")
+Chip = ExtResource("2_0hol4")
 
-[node name="board" parent="." instance=ExtResource("1_0e48y")]
-position = Vector2(584, 150)
+[node name="board" parent="." node_paths=PackedStringArray("row_slider") instance=ExtResource("1_0e48y")]
+position = Vector2(584, 43)
+peg_scene = ExtResource("4_0hol4")
+row_slider = NodePath("../GUI/Options/VBoxContainer/HSlider")
+scoring_area_scene = ExtResource("5_q6r6c")
+testRows = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Boundries" type="StaticBody2D" parent="."]
+position = Vector2(310, 450)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(227, 514)
-rotation = -0.959931
-scale = Vector2(1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries"]
+rotation = -1.09956
 shape = SubResource("RectangleShape2D_epypp")
+metadata/_edit_lock_ = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Boundries2" type="StaticBody2D" parent="."]
+position = Vector2(857, 445)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(931.922, 519.556)
-rotation = 0.959931
-scale = Vector2(1, 1)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundries2"]
+rotation = 1.09956
 shape = SubResource("RectangleShape2D_epypp")
+metadata/_edit_lock_ = true
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="Boundries3" type="StaticBody2D" parent="."]
+position = Vector2(497, -109)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(520, -12)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundries3"]
+rotation = -0.261799
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="Boundries4" type="StaticBody2D" parent="."]
+position = Vector2(670, -113)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(646, -12)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundries4"]
+rotation = 0.261799
 shape = SubResource("RectangleShape2D_0hol4")
+metadata/_edit_lock_ = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -63,6 +72,9 @@ text = "Rows"
 
 [node name="HSlider" type="HSlider" parent="GUI/Options/VBoxContainer"]
 layout_mode = 2
+min_value = 2.0
+max_value = 10.0
+value = 2.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="GUI/Options"]
 layout_mode = 2
@@ -83,6 +95,8 @@ text = "Centre Bias"
 
 [node name="HSlider" type="HSlider" parent="GUI/Options/VBoxContainer3"]
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="GUI/Options"]
 layout_mode = 2
@@ -99,3 +113,8 @@ placeholder_text = "$50.00"
 [node name="Button" type="Button" parent="GUI/Options"]
 layout_mode = 2
 text = "BET"
+
+[connection signal="value_changed" from="GUI/Options/VBoxContainer/HSlider" to="board" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="GUI/Options/VBoxContainer2/HSlider" to="." method="_on_chip_counter_slider_value_changed"]
+[connection signal="value_changed" from="GUI/Options/VBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="GUI/Options/Button" to="." method="_on_button_pressed"]

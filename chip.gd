@@ -1,6 +1,7 @@
-extends RigidBody2D
+class_name chip extends RigidBody2D
 
-@export var horizontal_damp: float = 0.1
+@export var horizontal_damp: float = 1
+
 
 func _ready():
 	linear_velocity = Vector2(randf_range(-10, 10), 0)

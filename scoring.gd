@@ -4,6 +4,6 @@ extends Area2D
 
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: PhysicsBody2D) -> void:
 	if body is RigidBody2D:
 		print(pts)

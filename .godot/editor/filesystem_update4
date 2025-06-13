@@ -1,0 +1,8 @@
+res://node_2d.tscn
+res://world.gd
+res://chip.tscn
+res://chip.gd
+res://board.tscn
+res://board.gd
+res://score.tscn
+res://scoring.gd

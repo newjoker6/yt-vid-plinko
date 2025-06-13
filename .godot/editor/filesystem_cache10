@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1749779549
+board.tscn::PackedScene::6786387442736177202::1749779499::0::1::::<><><>0<>0<><>::uid://c88nmn1lct056::::res://bumper.tscn<>uid://lcsolx8yntbr::::res://score.tscn
+bumper.tscn::PackedScene::7158009147229771927::1749779499::0::1::::<><><>0<>0<><>::uid://cy15as3puwjtl::::res://icon.svg
+chip.gd::GDScript::4720871541124077821::1749779499::0::1::::<>RigidBody2D<><>0<>0<><>::
+chip.tscn::PackedScene::7250234477643184670::1749779499::0::1::::<><><>0<>0<><>::uid://b8i3cgvikidy8::::res://chip.gd<>uid://cy15as3puwjtl::::res://icon.svg
+icon.svg::CompressedTexture2D::6512869935471487493::1749779499::1749779550::1::::<><><>0<>0<>05ad84d9f741a819e3ff6ddc42d01274<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+node_2d.tscn::PackedScene::5094963688753487830::1749779499::0::1::::<><><>0<>0<><>::uid://c3xm2r8ugvl3g::::res://board.tscn<>uid://hkihbqehy4vp::::res://world.gd<>uid://dbkckj1m5hlkg::::res://chip.tscn
+score.tscn::PackedScene::777324557330267847::1749779499::0::1::::<><><>0<>0<><>::uid://dcyvhvpg4l80e::::res://scoring.gd
+scoring.gd::GDScript::7350473488332489474::1749779499::0::1::::<>Area2D<><>0<>0<><>::
+world.gd::GDScript::512463996938584829::1749779499::0::1::::<>Node2D<><>0<>0<><>::
