@@ -8,19 +8,22 @@
 
 @export_category("Testing")
 @export_tool_button("test pegs") var testbtn = _testing
-@export_range(1, 10, 1) var testRows:int
+@export_range(2, 10, 1) var testRows:int
 
 func _testing():
 	_clear_pegs()
-	_spawn_triangle_pegs(testRows+1)
+	_spawn_triangle_pegs(testRows)
+
 
 func _ready() -> void:
 	_clear_pegs()
 	_spawn_triangle_pegs(2)
 
+
 func _clear_pegs():
 	for child in get_children():
 		child.queue_free()
+
 
 func _spawn_triangle_pegs(rows: int):
 	var start_y = 0
@@ -41,6 +44,7 @@ func _spawn_triangle_pegs(rows: int):
 func _on_h_slider_value_changed(value: float) -> void:
 	_clear_pegs()
 	_spawn_triangle_pegs(value)
+
 
 func _spawn_scoring_areas(num: int, y_offset: float):
 	var spacing = peg_hor_spacing

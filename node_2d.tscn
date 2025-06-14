@@ -21,7 +21,7 @@ position = Vector2(584, 43)
 peg_scene = ExtResource("4_0hol4")
 row_slider = NodePath("../GUI/Options/VBoxContainer/HSlider")
 scoring_area_scene = ExtResource("5_q6r6c")
-testRows = 2
+testRows = 10
 
 [node name="Boundries" type="StaticBody2D" parent="."]
 position = Vector2(310, 450)

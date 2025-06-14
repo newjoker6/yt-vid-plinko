@@ -8,6 +8,6 @@ func _ready():
 	angular_velocity = randf_range(-50, 50)
 
 
-func _integrate_forces(state):
+func _integrate_forces(state: PhysicsDirectBodyState2D):
 	if linear_velocity.y > 0:
 		linear_velocity.x *= horizontal_damp
